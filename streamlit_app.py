@@ -34,16 +34,18 @@ def get_fruityvice_data(this_fruit_choice):
 #New section to display fruityvice api response
 streamlit.header("Fruityvice Fruit Advice!")
 try:
-  #fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
-  fruit_choice = streamlit.text_input('What fruit would you like information about?')
-  if not fruit_choice:
-    streamlit.error("Please select a fruit to get information.")
-  else:
-      back_from_function=get_fruityvice_data(fruit_choice)
-        # output on the screen as a table
-      streamlit.dataframe(back_from_function)  #except URLError as e
-      
-#streamlit.header("The fruit load list contains:")
+      #fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+      fruit_choice = streamlit.text_input('What fruit would you like information about?')
+      if not fruit_choice:
+        streamlit.error("Please select a fruit to get information.")
+      else:
+          back_from_function = get_fruityvice_data(fruit_choice)
+            # output on the screen as a table
+          streamlit.dataframe(back_from_function)  #
+except URLError as e:
+      streamlit.error()
+    
+streamlit.header("The fruit load list contains:")
 #Snowflakes related functions
 def get_fruit_load_list():
     with my_cnx.cusor() as my_cur:
@@ -59,7 +61,7 @@ if streamlit.button('Get Fruit Load List'):
     
 streamlit.stop()
         
-  streamlit.error()
+
   
 streamlit.write('The user entered ', fruit_choice)
 
