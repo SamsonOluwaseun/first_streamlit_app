@@ -30,13 +30,13 @@ try:
   fruit_choice = streamlit.text_input('What fruit would you like information about?')
   if not fruit_choice:
     streamlit.error("Please select a fruit to get information.")
-  else
-    # fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
-    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ fruit_choice)
-    # take the json version of the response and normalize it
-    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-    # output on the screen as a table
-    streamlit.dataframe(fruityvice_normalized)
+  else:
+        # fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
+        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ fruit_choice)
+        # take the json version of the response and normalize it
+        fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+        # output on the screen as a table
+        streamlit.dataframe(fruityvice_normalized)
 except URLError as e:
   streamlit.error()
   
