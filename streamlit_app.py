@@ -22,15 +22,15 @@ fruits_selected= streamlit.multiselect("Pick some fruits:", list(my_fruit_list.i
 fruits_to_show = my_fruit_list.loc[fruits_selected]
 #Display table on the page
 streamlit.dataframe(fruits_to_show)
-
+    
+#New section to display fruityvice api response
 streamlit.header("Fruityvice Fruit Advice!")
 try:
   #fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
   fruit_choice = streamlit.text_input('What fruit would you like information about?')
   if not fruit_choice:
-    streamlit.errpr("Please select a fruit to get information.")
-  else:
-    #New section to display fruityvice api response
+    streamlit.error("Please select a fruit to get information.")
+  else
     # fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
     fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ fruit_choice)
     # take the json version of the response and normalize it
