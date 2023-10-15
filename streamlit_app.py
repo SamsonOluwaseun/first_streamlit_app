@@ -43,7 +43,7 @@ try:
         # output on the screen as a table
       streamlit.dataframe(back_from_function)  #except URLError as e
       
-streamlit.header("The fruit load list contains:")
+#streamlit.header("The fruit load list contains:")
 #Snowflakes related functions
 def get_fruit_load_list():
     with my_cnx.cusor() as my_cur:
